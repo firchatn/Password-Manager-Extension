@@ -1,0 +1,21 @@
+
+{
+
+  "manifest_version": 2,
+  "name": "Password Manager",
+  "version": "1.0",
+
+  "description": "Save all password puted in your firefox navigator.",
+
+  "icons": {
+    "48": "icons/pass.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["password.js"]
+    }
+  ]
+
+}
