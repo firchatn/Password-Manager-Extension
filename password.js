@@ -1,35 +1,39 @@
 
-website = document.location.host
+var website = document.location.host ;
+alert(website);
 
 function cheekexist(website){
 
 	if(website in localStorage){
 	    setPwdInputs(localStorage.getItem(website));
 	} else {
-	   savePassword(website, getPwdInputs()){
+	   savePassword(website, getPwdInputs());
 	}
 }
 
 function getPwdInputs() {
-  var ary = [];
-  var inputs = document.getElementsByTagName("input");
-  for (var i=0; i<inputs.length; i++) {
-    if (inputs[i].type.toLowerCase() === "password") {
-      ary.push(inputs[i]);
-    }
-  }
-  return ary;
+	var pass = "";
+	var x = document.getElementsByTagName("input") ;
+	for(i = 0 ; i< x.length ; i++){
+		if (x[i].getAttribute("type") === "password"){
+	      		ch = x[i].value ;
+		}
+	    }
+	  
+	return ch;
 }
 
 function setPwdInputs(pass) {
-  var ary = [];
-  var inputs = document.getElementsByTagName("input");
-  for (var i=0; i<inputs.length; i++) {
-    inputs[i].value = pass ;
-    }
+	var x = document.getElementsByTagName("input") ;
+	for(i = 0 ; i< x.length ; i++){
+		if (x[i].getAttribute("type") === "password"){
+	      		x[i].value = pass ;
+		}
+	    }
 }
 
-function savePassword(name,pass){
-	localStorage.setItem(name, pass);
+function savePassword(website,pass){
+	localStorage.setItem(website, pass);
 }
+alert(getPwdInputs());
 
