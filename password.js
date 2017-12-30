@@ -60,12 +60,6 @@ if ( pass != ""){
 // on open call cheekxist
 
 
-function handleClick() {
-    alert("do something.");
-    
-}
-
-
 /* Main */
 browser.browserAction.onClicked.addListener(handleClick);
 getinput().onblur = function() {password = getPwdInputs()};
