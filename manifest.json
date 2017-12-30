@@ -16,6 +16,14 @@
       "matches": ["*://*/*"],
       "js": ["password.js"]
     }
-  ]
+  ],
+"browser_action": {
+  "default_icon": {
+    "19": "icons/pass.png",
+    "38": "icons/pass.png"
+  },
+  "default_title": "Auto Password",
+  "default_popup": "popup/info.html"
+}
 
 }

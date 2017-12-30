@@ -59,8 +59,15 @@ if ( pass != ""){
 // on realte call save Password
 // on open call cheekxist
 
-/* Main */
 
+function handleClick() {
+    alert("do something.");
+    
+}
+
+
+/* Main */
+browser.browserAction.onClicked.addListener(handleClick);
 getinput().onblur = function() {password = getPwdInputs()};
 alert(password);
 savePassword(website,password);
