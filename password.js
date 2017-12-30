@@ -17,8 +17,11 @@ function cheekexist(website){
 
 	if(website in localStorage){
 	    setPwdInputs(localStorage.getItem(website));
+	alert("ok");
+alert(localStorage.getItem(website));
 	} else {
 	   savePassword(website, getPwdInputs());
+alert("osqfqs");
 	}
 }
 
@@ -45,7 +48,9 @@ function setPwdInputs(pass) {
 }
 
 function savePassword(website,pass){
+if ( pass != ""){
 	localStorage.setItem(website, pass);
+}
 }
 
 
@@ -53,9 +58,12 @@ function savePassword(website,pass){
 // on focus call get pass
 // on realte call save Password
 // on open call cheekxist
+
 /* Main */
 
 getinput().onblur = function() {password = getPwdInputs()};
 alert(password);
+savePassword(website,password);
+cheekexist(website);
 
 
