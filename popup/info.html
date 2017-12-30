@@ -3,6 +3,7 @@
 <head>	
 <meta charset="utf-8" />
 <title>Password Automatision</title>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 <p>Saved Password </p>
@@ -10,20 +11,6 @@
   <li>Default</li>
 </ol>
 
-
-<script>
-function savedpass(word) {
-    var x = document.createElement("LI");
-    var t = document.createTextNode(word);
-    x.appendChild(t);
-    document.getElementById("myList").appendChild(x);
-}
-
-   for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-  savedpass( localStorage.getItem( localStorage.key( i ) ) );
-savedpass("ifr");
-}
-
-</script>
+ <script src="popup.js"></script>
 </body>
 </html>
