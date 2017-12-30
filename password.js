@@ -1,18 +1,7 @@
 
 var website = document.location.host ;
 //alert(website);
-
-function startRead() {
-	var x = document.getElementsByTagName("input") ;
-	for(i = 0 ; i< x.length ; i++){
-		if (x[i].getAttribute("type") === "password"){
-	      		if (x[i] === document.activeElement){
-				return true;
-			}
-		}
-	    }
-}
-
+var password = "" ;
 
 function getinput() {
 	var x = document.getElementsByTagName("input") ;
@@ -64,6 +53,9 @@ function savePassword(website,pass){
 // on focus call get pass
 // on realte call save Password
 // on open call cheekxist
-getinput().onblur = function() {getPwdInputs()};
+/* Main */
+
+getinput().onblur = function() {password = getPwdInputs()};
+alert(password);
 
 
