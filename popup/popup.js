@@ -9,4 +9,5 @@ function savedpass(word) {
     x.appendChild(t);
     document.getElementById("myList").appendChild(x);
 }
-browser.browserAction.onClicked.addListener(handleClick);
+	
+//browser.browserAction.onClicked.addListener(handleClick);
