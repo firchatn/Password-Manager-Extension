@@ -7,21 +7,21 @@ function getinput() {
 	var x = document.getElementsByTagName("input") ;
 	for(i = 0 ; i< x.length ; i++){
 		if (x[i].getAttribute("type") === "password"){
-	      		
-				return x[i] ;
-			
+				return x[i] ;	
 		}
 	    }
 }
 function cheekexist(website){
-
 	if(website in localStorage){
+alert(website);
 	    setPwdInputs(localStorage.getItem(website));
-	alert("ok");
-alert(localStorage.getItem(website));
+ alert(localStorage.getItem(website));
 	} else {
-	   savePassword(website, getPwdInputs());
-alert("osqfqs");
+	   //getinput().onblur = function() {password = getPwdInputs()};
+	   password =  getPwdInputs();
+	   alert(password);
+	   alert(website);
+	   savePassword(website, password);
 	}
 }
 
@@ -30,12 +30,12 @@ function getPwdInputs() {
 	var x = document.getElementsByTagName("input") ;
 	for(i = 0 ; i< x.length ; i++){
 		if (x[i].getAttribute("type") === "password"){
-	      		ch = x[i].value ;
-			alert(ch);
+	      		pass = x[i].value ;
+			//alert(ch);
 		}
 	    }
 	  
-	return ch;
+	return pass;
 }
 
 function setPwdInputs(pass) {
@@ -54,17 +54,13 @@ if ( pass != ""){
 }
 
 
-
 // on focus call get pass
 // on realte call save Password
 // on open call cheekxist
 
 
 /* Main */
-browser.browserAction.onClicked.addListener(handleClick);
-getinput().onblur = function() {password = getPwdInputs()};
-alert(password);
-savePassword(website,password);
+//browser.browserAction.onClicked.addListener(handleClick);
+//savePassword(website,password);
 cheekexist(website);
-
 
