@@ -1,6 +1,5 @@
 
 var website = document.location.host ;
-//alert(website);
 var password = "" ;
 
 function getinput() {
@@ -13,14 +12,10 @@ function getinput() {
 }
 function cheekexist(website){
 	if(website in localStorage){
-alert(website);
 	    setPwdInputs(localStorage.getItem(website));
- alert(localStorage.getItem(website));
 	} else {
 	   //getinput().onblur = function() {password = getPwdInputs()};
 	   password =  getPwdInputs();
-	   alert(password);
-	   alert(website);
 	   savePassword(website, password);
 	}
 }
@@ -31,7 +26,6 @@ function getPwdInputs() {
 	for(i = 0 ; i< x.length ; i++){
 		if (x[i].getAttribute("type") === "password"){
 	      		pass = x[i].value ;
-			//alert(ch);
 		}
 	    }
 	  
@@ -52,11 +46,6 @@ if ( pass != ""){
 	localStorage.setItem(website, pass);
 }
 }
-
-
-// on focus call get pass
-// on realte call save Password
-// on open call cheekxist
 
 
 /* Main */
