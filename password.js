@@ -10,13 +10,14 @@ function getinput() {
 		}
 	    }
 }
+
 function cheekexist(website){
 	if(website in localStorage){
 	    setPwdInputs(localStorage.getItem(website));
 	} else {
 	   //getinput().onblur = function() {password = getPwdInputs()};
 	   password =  getPwdInputs();
-	   savePassword(website, password);
+	   savepassword(website, password);
 	}
 }
 
@@ -27,8 +28,7 @@ function getPwdInputs() {
 		if (x[i].getAttribute("type") === "password"){
 	      		pass = x[i].value ;
 		}
-	    }
-	  
+	    }	  
 	return pass;
 }
 
@@ -41,9 +41,10 @@ function setPwdInputs(pass) {
 	    }
 }
 
-function savePassword(website,pass){
+function savepassword(pass){
 if ( pass != ""){
 	localStorage.setItem(website, pass);
+	
 }
 }
 
