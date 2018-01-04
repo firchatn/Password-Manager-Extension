@@ -2,31 +2,18 @@
 var website = document.location.host ;
 var password = "" ;
 var jsonData = '[{"default": "https://.tik.tn"}]';
+inputName = "" ;
+
+inputName = getInputName;
+document.getElementsByName(inputName).addEventListener('change', getinput);
 
 
-//jsonData.push({website: password});
-
-function verif(){
-alert('verif');	
-if(jsonData.hasOwnProperty(website)){
-alert('in');
-setpassword();
-}
-else{
-alert('save');
-getinput().onblur = function() {password = getpassword()};
-alert('save2');
-password = getpassword();
-savepassword(password);
-}
-}
-
-function getpassword() {
+function getInputName() {
 	var x = document.getElementsByTagName("input") ;
 var pass ="";
 	for(i = 0 ; i< x.length ; i++){
 		if (x[i].getAttribute("type") === "password"){
-				pass =  x[i] ;	
+				pass =  x[i].name ;	
 		}
 	    }
 return pass ; 
@@ -44,48 +31,16 @@ var pass = localStorage.getItem('passwordManager')[website];
 }
 
 
-
-
-
-
-
-
-
 function getinput() {
 	var x = document.getElementsByTagName("input") ;
 	for(i = 0 ; i< x.length ; i++){
 		if (x[i].getAttribute("type") === "password"){
-				return x[i] ;	
+				return x[i].value ;	
 		}
 	    }
 }
 
-
-
-
-function cheekexist(website){
-	if(website in localStorage){
-	    setPwdInputs(localStorage.getItem(website));
-	} else {
-	   //getinput().onblur = function() {password = getPwdInputs()};
-	   password =  getPwdInputs();
-	   savePassword(website, password);
-	}
-}
-
-function getPwdInputs() {
-	var pass = "";
-	var x = document.getElementsByTagName("input") ;
-	for(i = 0 ; i< x.length ; i++){
-		if (x[i].getAttribute("type") === "password"){
-	      		pass = x[i].value ;
-		}
-	    }
-	  
-	return pass;
-}
-
-function setPwdInputs(pass) {
+function setinput(pass) {
 	var x = document.getElementsByTagName("input") ;
 	for(i = 0 ; i< x.length ; i++){
 		if (x[i].getAttribute("type") === "password"){

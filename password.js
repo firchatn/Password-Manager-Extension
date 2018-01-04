@@ -1,4 +1,3 @@
-
 var website = document.location.host ;
 var password = "" ;
 
