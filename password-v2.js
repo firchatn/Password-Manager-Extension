@@ -1,11 +1,9 @@
-
 var website = document.location.host ;
 var password = "" ;
 var jsonData = '[{"default": "https://.tik.tn"}]';
 inputName = "" ;
+var currentpass = "" ;
 
-inputName = getInputName;
-document.getElementsByName(inputName).addEventListener('change', getinput);
 
 
 function getInputName() {
@@ -32,10 +30,12 @@ var pass = localStorage.getItem('passwordManager')[website];
 
 
 function getinput() {
+	alert('o');
 	var x = document.getElementsByTagName("input") ;
 	for(i = 0 ; i< x.length ; i++){
 		if (x[i].getAttribute("type") === "password"){
-				return x[i].value ;	
+				return x[i].value ;
+					
 		}
 	    }
 }
@@ -49,12 +49,6 @@ function setinput(pass) {
 	    }
 }
 
-function savepassword(pass){
-if ( pass != ""){
-jsonData.push({website: pass});
-	localStorage.setItem('passwordManager', JSON.stringify(jsonData));
-}
-}
-
-verif();
+inputName = getInputName();
+document.getElementsByName(inputName).addEventListener('change', currentpass = getinput);
 
