@@ -1,55 +1,44 @@
 var website = document.location.host ;
 var password = "" ;
+var listwebsite = ['www.facebook.com','www.instagram.com'];
 
-function getinput() {
-	var x = document.getElementsByTagName("input") ;
-	for(i = 0 ; i< x.length ; i++){
-		if (x[i].getAttribute("type") === "password"){
-				return x[i] ;	
+function start() {
+	alert('start');
+	var activeElm = document.activeElement;
+	alert('aa');
+	if (activeElm.getAttribute("type") === "password"){
+		if(exist(website)){
+			alert('exist');
+			setpassword(activeElm,website);
 		}
-	    }
-}
-
-function cheekexist(website){
-	if(website in localStorage){
-	    setPwdInputs(localStorage.getItem(website));
-	} else {
-	   //getinput().onblur = function() {password = getPwdInputs()};
-	   password =  getPwdInputs();
-	   savepassword(website, password);
+		else{
+			alert('n exist');
+			savepassword(getpassword(activeElm));
+		}
 	}
 }
 
-function getPwdInputs() {
-	var pass = "";
-	var x = document.getElementsByTagName("input") ;
-	for(i = 0 ; i< x.length ; i++){
-		if (x[i].getAttribute("type") === "password"){
-	      		pass = x[i].value ;
-		}
-	    }	  
-	return pass;
+function exist(website){
+	if (website in listwebsite)
+		return true;
+	else
+		return false;
 }
 
-function setPwdInputs(pass) {
-	var x = document.getElementsByTagName("input") ;
-	for(i = 0 ; i< x.length ; i++){
-		if (x[i].getAttribute("type") === "password"){
-	      		x[i].value = pass ;
-		}
-	    }
+function setpassword(activeElm,website){
+	password = '';
+	activeElm.value = password ;
+	alert('i');
+}
+
+function getpassword(activeElm){
+	return activeElm.value;
 }
 
 function savepassword(pass){
-if ( pass != ""){
-	localStorage.setItem(website, pass);
+	listwebsite.push(website);
+	alert('o');
+}
 	
-}
-}
-
-
-/* Main */
-//browser.browserAction.onClicked.addListener(handleClick);
-//savePassword(website,password);
-cheekexist(website);
+start();
 
