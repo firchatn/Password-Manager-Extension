@@ -35,8 +35,14 @@ function exist(website){
 
 function setpassword(activeElm,website){
 	password = '';
+	var lists = localStorage.getItem('passwordManager');
+	lists = JSON.parse(lists);
+	keys = Object.keys(lists);
+for (var i = 0 ; i < keys.length ; i++) {
+    if (keys[i] === website )
+	password = lists[keys[i]];
+}
 	activeElm.value = password ;
-	alert('i');
 }
 
 function getpassword(activeElm){
