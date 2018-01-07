@@ -3,7 +3,7 @@ var password = "" ;
 
 var listwebsite = {};
 
-localStorage.setItem('passwordManager', listwebsite.toString());
+localStorage.setItem('passwordManager', listwebsite);
 var inputs = document.getElementsByTagName('input');
 
 if (inputs.password != null){
@@ -12,6 +12,25 @@ if (inputs.password != null){
 if (inputs.pass != null){
 	inputsPass = inputs.pass;
 }
+
+
+function exist(){
+	alert('hkbn');
+	find = false;
+	var lists = localStorage.getItem('passwordManager');
+	alert('loal');
+	//lists = JSON.parse(lists);
+	keys = Object.keys(lists);
+alert('nnj');
+	alert(keys.length);	
+for (var i = 0 ; i < keys.length ; i++) {
+    if (keys[i] === website )
+	alert('hg');
+	find = true ;
+}
+	return find ;
+}
+
 
 function start() {
 	alert('start');
@@ -26,17 +45,6 @@ function start() {
 
 }
 
-function exist(){
-	find = false;
-	var lists = localStorage.getItem('passwordManager');
-	lists = JSON.parse(lists);
-	keys = Object.keys(lists);
-for (var i = 0 ; i < keys.length ; i++) {
-    if (keys[i] === website )
-	find = true ;
-}
-	return find ;
-}
 
 function setpassword(activeElm,website){
 	password = '';
@@ -56,7 +64,7 @@ function getpassword(activeElm){
 
 function savepassword(pass){
 	listwebsite[website] = pass ;
-	localStorage.setItem('passwordManager', listwebsite.toString());
+	localStorage.setItem('passwordManager', listwebsite);
 }
 /* Main */
 
