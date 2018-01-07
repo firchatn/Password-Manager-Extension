@@ -15,7 +15,7 @@ if (inputs.pass != null){
 
 function start() {
 	alert('start');
-	if(exist(website)){
+	if(exist()){
 		alert('exist');
 		setpassword(activeElm,website);
 	}
@@ -26,11 +26,16 @@ function start() {
 
 }
 
-function exist(website){
-	if (website in listwebsite)
-		return true;
-	else
-		return false;
+function exist(){
+	find = false;
+	var lists = localStorage.getItem('passwordManager');
+	lists = JSON.parse(lists);
+	keys = Object.keys(lists);
+for (var i = 0 ; i < keys.length ; i++) {
+    if (keys[i] === website )
+	find = true ;
+}
+	return find ;
 }
 
 function setpassword(activeElm,website){
