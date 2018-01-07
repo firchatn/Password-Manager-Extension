@@ -1,6 +1,9 @@
 var website = document.location.host ;
 var password = "" ;
-var listwebsite = ['www.facebook.com','www.instagram.com'];
+
+var listwebsite = {};
+
+localStorage.setItem('passwordManager', listwebsite.toString());
 var inputs = document.getElementsByTagName('input');
 
 if (inputs.password != null){
@@ -41,8 +44,8 @@ function getpassword(activeElm){
 }
 
 function savepassword(pass){
-	listwebsite.push(website);
-	alert('o');
+	listwebsite[website] = pass ;
+	localStorage.setItem('passwordManager', listwebsite.toString());
 }
 /* Main */
 
