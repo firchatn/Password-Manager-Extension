@@ -26,6 +26,8 @@ alert('nnj');
 for (var i = 0 ; i < keys.length ; i++) {
     if (keys[i] === website )
 	alert('hg');
+	alert(keys[i]);
+alert(lists[i]);
 	find = true ;
 }
 	return find ;
@@ -48,8 +50,8 @@ function start() {
 
 function setpassword(activeElm,website){
 	password = '';
-	var lists = localStorage.getItem('passwordManager');
-	lists = JSON.parse(lists);
+	var lists = JSON.parse(localStorage.getItem('passwordManager'));
+	//lists = JSON.parse(lists);
 	keys = Object.keys(lists);
 for (var i = 0 ; i < keys.length ; i++) {
     if (keys[i] === website )
@@ -64,7 +66,7 @@ function getpassword(activeElm){
 
 function savepassword(pass){
 	listwebsite[website] = pass ;
-	localStorage.setItem('passwordManager', listwebsite);
+	localStorage.setItem('passwordManager', JSON.stringify(listwebsite));
 }
 /* Main */
 
